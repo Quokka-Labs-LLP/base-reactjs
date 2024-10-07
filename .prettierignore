@@ -1,0 +1,16 @@
+/node_modules 
+/build 
+/dist 
+/out 
+/coverage 
+/.idea 
+/.fleet 
+/.vscode 
+.git/ 
+.svn/ 
+.editorconfig 
+.exe 
+.gif 
+.jpg 
+.png
+*.html
