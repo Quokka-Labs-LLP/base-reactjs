@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint ./src/**/*.{js,jsx,tsx,ts}",
+    "lint": "eslint './src/**/*.{js,jsx,tsx,ts}'",
     "preview": "vite preview",
     "prepare": "husky",
     "prettier": "prettier . --write"
@@ -21,6 +21,9 @@
     "node": ">20.9.0"
   },
   "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/material": "^6.1.2",
     "@reduxjs/toolkit": "^2.2.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
