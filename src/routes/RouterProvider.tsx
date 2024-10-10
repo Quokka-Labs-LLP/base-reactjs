@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import RequiredAuth from './RequiredAuth'
 import { lazy } from 'react'
+import Dashboard from '../pages/Dashboard'
 // Components imports
 const Layout = lazy(() => import('../Layout'))
 const Page404 = lazy(() => import('../pages/404'))
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
         index: true,
         element: (
           <RequiredAuth>
-            <div>Dashboard</div>,
+            <Dashboard />
           </RequiredAuth>
         ),
       },

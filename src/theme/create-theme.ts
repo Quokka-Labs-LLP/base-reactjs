@@ -1,5 +1,11 @@
 import { extendTheme, type Theme } from '@mui/material/styles'
-import { customShadows, shadows, typography, colorSchemes } from './core'
+import {
+  customShadows,
+  shadows,
+  typography,
+  colorSchemes,
+  components,
+} from './core'
 import { ThemeColorScheme } from './types'
 
 export function createTheme(themeMode: ThemeColorScheme): Theme {
@@ -9,6 +15,7 @@ export function createTheme(themeMode: ThemeColorScheme): Theme {
     customShadows: customShadows(themeMode),
     shape: { borderRadius: 8 },
     typography,
+    components,
   }
 
   const theme = extendTheme(initialTheme)
