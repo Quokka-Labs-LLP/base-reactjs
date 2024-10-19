@@ -11,7 +11,7 @@ import sonarjs from 'eslint-plugin-sonarjs'
 const ERROR = 2
 
 export default tseslint.config(
-  {ignores: ['dist', 'build', 'coverage', 'node_modules']},
+  { ignores: ['dist', 'build', 'coverage', 'node_modules'] },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended, sonarjs.configs.recommended],
     files: ['**/*.{ts,tsx,js,jsx}'],
@@ -26,9 +26,9 @@ export default tseslint.config(
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': ['warn', {allowConstantExport: true}],
+      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       'no-console': ERROR,
-      '@typescript-eslint/explicit-function-return-type': ERROR
+      '@typescript-eslint/explicit-function-return-type': ERROR,
     },
   }
 )
