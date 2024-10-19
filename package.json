@@ -9,7 +9,8 @@
     "lint": "eslint src/**/*.{ts,tsx}",
     "lint:fix": "yarn lint --fix",
     "preview": "vite preview",
-    "format": "prettier . -w --cache"
+    "format": "prettier . -w --cache",
+    "prepare": "husky"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -26,6 +27,8 @@
     "eslint-plugin-sonarjs": "^2.0.4",
     "eslint-plugin-unicorn": "^56.0.0",
     "globals": "^15.9.0",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.7.0",
@@ -33,5 +36,11 @@
   },
   "engines": {
     "node": ">=20.x"
+  },
+  "lint-staged": {
+    "**/*.{js,ts,tsx,jsx}": [
+      "yarn run lint",
+      "yarn run format"
+    ]
   }
 }
