@@ -18,7 +18,9 @@
     "noUnusedParameters": true,
     "noImplicitAny": true,
     "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    "types": ["vitest/globals"]
   },
   "include": ["src"]
 }

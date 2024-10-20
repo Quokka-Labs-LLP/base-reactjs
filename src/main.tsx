@@ -7,6 +7,7 @@ import { generateRoutes, type IRoutes } from './routes'
 import './index.css'
 
 const routes: IRoutes[] = generateRoutes()
+// @ts-expect-error Type A
 const router = createBrowserRouter(routes)
 
 const container = document.getElementById('root') || document.body

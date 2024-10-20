@@ -1,8 +1,9 @@
-import type { ComponentType, ReactNode } from 'react'
+import { type ComponentType, type ReactNode } from 'react'
 
 export interface IRoutes {
   path: string
   element?: ReactNode
+  lazy?: Mod
   Component?: ComponentType
   ErrorBoundary?: ComponentType
   children?: IRoutes[]
@@ -59,12 +60,13 @@ export function generateNestedRoutes(routes: IRoutes[]): IRoutes[] {
 }
 
 export function generateRoutes(): IRoutes[] {
-  const eager: Page = import.meta.glob('../pages/**/*.tsx', { eager: true })
+  // @ts-expect-error Type A
+  const eager: Page = import.meta.glob('../pages/**/*.tsx')
   const routes: IRoutes[] = []
   // eslint-disable-next-line sonarjs/slow-regex
   const catchRegex = /\[(.+)\]/g
 
-  for (const path of Object.keys(eager)) {
+  for (const path of Object.keys(eager).filter(e => !e.includes('.test.'))) {
     let routePath = path.slice(8, -4)
     routePath = routePath.replace(catchRegex, ':$1')
 
@@ -74,7 +76,7 @@ export function generateRoutes(): IRoutes[] {
     }
 
     const route: IRoutes = {
-      Component: eager[path].default,
+      lazy: eager[path],
       path: routePath,
       ...(eager[path].action ? { action: eager[path].action } : {}),
       ...(eager[path].loader ? { loader: eager[path].loader } : {}),

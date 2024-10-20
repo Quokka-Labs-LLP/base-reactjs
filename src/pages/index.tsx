@@ -1,18 +1,20 @@
 import type { JSX } from 'react'
 
-import { isRouteErrorResponse, json, useLoaderData, useRouteError } from 'react-router-dom'
+import { isRouteErrorResponse, json, Outlet, useLoaderData, useRouteError } from 'react-router-dom'
 
 export function loader(): Response {
   return json('Tanmay')
 }
 
-export default function IndexPage(): JSX.Element {
+export function Component(): JSX.Element {
   const loaderData = useLoaderData() as string
 
   return (
     <>
       <h1>Index Page</h1>
       <p>Hi {loaderData || ''}</p>
+
+      <Outlet />
     </>
   )
 }
