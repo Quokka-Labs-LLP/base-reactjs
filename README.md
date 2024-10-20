@@ -1,50 +1,39 @@
-# React + TypeScript + Vite
+# React Saas Admin
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Opinionated Saas admin template.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Vite](https://vitejs.dev) with [React](https://reactjs.org), [TypeScript](https://www.typescriptlang.org).
+- Use [ESLint](https://eslint.org), and [Prettier](https://prettier.io) on VSCode and before you commit with [Husky](https://github.com/typicode/husky) and [lint-staged](https://github.com/okonet/lint-staged).
+- Use [React Router Dom](https://reactrouter.com/en/main) for file-based routing.
+- Route based code splitting.
+- Write unit and integration tests with [Vitest](https://vitest.dev/) and [Testing Library](https://testing-library.com/).
 
-## Expanding the ESLint configuration
+## Getting started
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Use this repository as a [GitHub template](https://github.com/Quokka-Labs-LLP/base-reactjs) to clone to your machine with an empty git history:
 
-- Configure the top-level `parserOptions` property like this:
+Then, install the dependencies:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+yarn install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Before you start coding
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- [ ] If you don't plan to use GitHub Actions, delete the `.github` directory.
+- [ ] Change the `favicon.png`, `apple-touch-icon.png`, `android-chrome-192x192.png` and `android-chrome-512x512.png`. [favicon.io](https://favicon.io) is a cool tool for generating these assets.
+- [ ] Change the title, description and theme color in the `index.html` and `vite.config.ts`.
+- [ ] Change the `name` field in package.json.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Scripts
+
+- `yarn dev` - start a development server with hot reload.
+- `yarn build` - build for production. The generated files will be on the `dist` folder.
+- `yarn preview` - locally preview the production build.
+- `yarn test` - run unit and integration tests related to changed files based on git.
+- `yarn test:ui` - run unit and integration tests related in vitest ui mode.
+- `yarn coverage` - run code coverage related to changed files based on git.
+- `yarn format` - format all files with Prettier.
+- `yarn lint` - runs TypeScript, ESLint and Stylelint.
