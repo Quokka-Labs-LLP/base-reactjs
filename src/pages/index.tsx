@@ -1,6 +1,7 @@
 import type { JSX } from 'react'
-
 import { isRouteErrorResponse, json, Outlet, useLoaderData, useRouteError } from 'react-router-dom'
+
+import Logo from '../assets/react.svg?react'
 
 export function loader(): Response {
   return json('Tanmay')
@@ -12,6 +13,7 @@ export function Component(): JSX.Element {
   return (
     <>
       <h1>Index Page</h1>
+      <Logo />
       <p>Hi {loaderData || ''}</p>
 
       <Outlet />
