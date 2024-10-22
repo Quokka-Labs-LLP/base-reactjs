@@ -1,7 +1,7 @@
 const SideBar = () => {
   return (
-    <div style={{ height: '100vh', border: '1px solid red', minWidth: 280 }}>
-      SideBar
+    <div className="h-full w-[280px] bg-secondary">
+      <h1>Sidebar</h1>
     </div>
   )
 }

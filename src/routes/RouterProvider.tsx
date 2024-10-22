@@ -17,7 +17,7 @@ const router = createBrowserRouter([
         index: true,
         element: (
           <RequiredAuth>
-            <div>Dashboard</div>,
+            <div>Dashboard</div>
           </RequiredAuth>
         ),
       },

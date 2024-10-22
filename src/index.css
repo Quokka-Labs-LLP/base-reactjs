@@ -1,68 +1,70 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
+@layer base {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    --background: #ffffff;
+    --foreground: #3b3b3b;
+    --card: #ffffff;
+    --card-foreground: #3b3b3b;
+    --popover: #ffffff;
+    --popover-foreground: #3b3b3b;
+    --primary: #a45c9e;
+    --primary-foreground: #d2e7f2;
+    --secondary: #d9d9d9;
+    --secondary-foreground: #363636;
+    --muted: #d9d9d9;
+    --muted-foreground: #7c7c7c;
+    --accent: #d9d9d9;
+    --accent-foreground: #363636;
+    --destructive: #ff4f00;
+    --destructive-foreground: #d2e7f2;
+    --border: #e5e5e5;
+    --input: #e5e5e5;
+    --ring: #a45c9e;
+    --radius: 0.5rem;
+    --chart-1: #f6a600;
+    --chart-2: #2bc6a8;
+    --chart-3: #3197a1;
+    --chart-4: #abca00;
+    --chart-5: #8fdb00;
   }
-  a:hover {
-    color: #747bff;
+
+  .dark {
+    --background: #3b3b3b;
+    --foreground: #d2e7f2;
+    --card: #3b3b3b;
+    --card-foreground: #d2e7f2;
+    --popover: #3b3b3b;
+    --popover-foreground: #d2e7f2;
+    --primary: #a45c9e;
+    --primary-foreground: #d2e7f2;
+    --secondary: #353535;
+    --secondary-foreground: #d2e7f2;
+    --muted: #353535;
+    --muted-foreground: #a8a8a8;
+    --accent: #353535;
+    --accent-foreground: #d2e7f2;
+    --destructive: #ff7f00;
+    --destructive-foreground: #d2e7f2;
+    --border: #353535;
+    --input: #353535;
+    --ring: #a45c9e;
+    --chart-1: #dcba00;
+    --chart-2: #99cc99;
+    --chart-3: #cc9933;
+    --chart-4: #800080;
+    --chart-5: #ff3333;
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
   }
 }
