@@ -59,10 +59,7 @@ export function generateNestedRoutes(routes: IRoutes[]): IRoutes[] {
   return routes
 }
 
-export function generateRoutes(): IRoutes[] {
-  // @ts-expect-error Type A
-  const eager: Page = import.meta.glob('../pages/**/*.tsx')
-  const routes: IRoutes[] = []
+export function createRoutes(eager: Page, routes: IRoutes[] = []): IRoutes[] {
   // eslint-disable-next-line sonarjs/slow-regex
   const catchRegex = /\[(.+)\]/g
 
@@ -78,16 +75,24 @@ export function generateRoutes(): IRoutes[] {
     const route: IRoutes = {
       lazy: eager[path],
       path: routePath,
-      ...(eager[path].action ? { action: eager[path].action } : {}),
-      ...(eager[path].loader ? { loader: eager[path].loader } : {}),
-      ...(eager[path].ErrorBoundary ? { ErrorBoundary: eager[path].ErrorBoundary } : {}),
+      ...(eager[path]?.action ? { action: eager[path].action } : {}),
+      ...(eager[path]?.loader ? { loader: eager[path].loader } : {}),
+      ...(eager[path]?.ErrorBoundary ? { ErrorBoundary: eager[path].ErrorBoundary } : {}),
     }
 
     routes.push(route)
   }
 
   // sort routes to ensure that child routes are procesed before parent routes
-  routes.sort((a, b) => b.path.split('/').length - a.path.split('/').length)
+  routes.sort((a, b) => b.path.split('/').filter(Boolean).length - a.path.split('/').filter(Boolean).length)
+
+  return routes
+}
+
+export function generateRoutes(): IRoutes[] {
+  // @ts-expect-error Type A
+  const eager: Page = import.meta.glob('../pages/**/*.tsx')
+  const routes: IRoutes[] = createRoutes(eager)
 
   // create a nested structure
   return generateNestedRoutes(routes)
