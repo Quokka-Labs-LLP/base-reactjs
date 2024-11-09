@@ -1,11 +1,14 @@
 import { Suspense } from 'react'
 import Router from './routes/RouterProvider'
+import { ThemeProvider } from '@/components/theme-provider'
 
 const App = () => {
   return (
-    <Suspense fallback="Loading...">
-      <Router />
-    </Suspense>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <Suspense fallback="Loading...">
+        <Router />
+      </Suspense>
+    </ThemeProvider>
   )
 }
 
